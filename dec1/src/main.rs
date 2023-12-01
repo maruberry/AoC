@@ -108,7 +108,6 @@ fn main() {
 				}
 			}
 		}	
-        println!("{}. {}", i + 1, line);
         
         if last.is_digit(10) == true
         {
@@ -117,6 +116,7 @@ fn main() {
 			let together = first_num + last_num;
 			answer += together;
 		}
+		
 		else if first.is_digit(10) == true
 		{
 			let first_num = first as i32 - 0x30;
