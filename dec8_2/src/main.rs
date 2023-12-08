@@ -9,7 +9,7 @@ fn main() {
 }
 
 fn navigate (directions: String, map: Vec<Vec<String>>, end_index: Vec<usize>, start_index: Vec<usize>) -> usize {
-	let mut found: bool = false;
+	let found: bool = false;
 	let mut answer_vec = Vec::new();
 
 	for start in start_index {
@@ -52,7 +52,7 @@ fn vectorize_map (input: String) -> Vec<Vec<String>> {
 	
 	for line in input.lines(){
 		let mut inside_vec: Vec<String> = Vec::new();
-		let (first, second) = line.split_once(" = (").unwrap();
+		let (_first, second) = line.split_once(" = (").unwrap();
 		
 		let (left, right1) = second.split_once(", ").unwrap();
 		inside_vec.push(left.to_string());
@@ -70,7 +70,7 @@ fn replace_map (mut input: String) -> (String, Vec<usize>, Vec<usize>) {
 	let mut start_index = Vec::new();
 	
 	for (i, line) in copy.lines().enumerate() {
-		let (first, second) = line.split_once(" = ").unwrap();
+		let (first, _second) = line.split_once(" = ").unwrap();
 
 		if "Z".eq(&first[2..3]) {end_index.push(i);}	
 		if "A".eq(&first[2..3]) {start_index.push(i);}	
